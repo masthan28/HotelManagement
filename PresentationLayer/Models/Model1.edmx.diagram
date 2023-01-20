@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f30c01bdc45f4665ac185371bfe6808a" Name="Diagram1">
+        <EntityTypeShape EntityType="hotelmanagementModel.tblAddress" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblAddresstype" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblcollection" Width="1.5" PointX="16.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblcustomer" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblemployee" Width="1.5" PointX="7.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblgender" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblinventory" Width="1.5" PointX="10.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblinvoice" Width="1.5" PointX="14.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblmenuitem" Width="1.5" PointX="7.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblorderdelivery" Width="1.5" PointX="12" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblorder" Width="1.5" PointX="9.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblproduct" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelmanagementModel.tblrole" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblAddres__addre__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblcustom__addre__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblcustom__hotel__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblemploy__addre__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblproduc__hotel__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblcollec__invoi__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblemploy__custo__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblinvent__custo__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblmenuit__custo__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblproduc__custo__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblemploy__gende__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblemploy__rolei__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblinvent__produ__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblinvoic__deliv__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblorders__menui__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="hotelmanagementModel.FK__tblorderd__order__5FB337D6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

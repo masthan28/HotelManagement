@@ -1,0 +1,1211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="hotelmanagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAddress">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="country" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="state" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="district" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="place" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="phonenumber" Type="varchar" MaxLength="12" />
+          <Property Name="email" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="addresstypeid" Type="int" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblAddresstype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblcollection">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="invoiceid" Type="int" />
+          <Property Name="collectionamount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="pendingamount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblcustomer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="aadharnumber" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="addressid" Type="int" />
+          <Property Name="hoteladdressid" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblemployee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="aadharnumber" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="salary" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="joiningdate" Type="datetime" />
+          <Property Name="genderid" Type="int" />
+          <Property Name="addressid" Type="int" />
+          <Property Name="roleid" Type="int" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblgender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblinventory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="units" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="productid" Type="int" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblinvoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deliveryid" Type="int" />
+          <Property Name="totalamount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblmenuitems">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="extrainfo" Type="nvarchar" MaxLength="255" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblorderdelivery">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderid" Type="int" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblorders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="person" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="personphonenumber" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="menuitemid" Type="int" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="orderfordate" Type="datetime" />
+          <Property Name="totalprice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblproduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="hoteladdressid" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblrole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifiedby" Type="int" />
+        </EntityType>
+        <Association Name="FK__tblAddres__addre__33D4B598">
+          <End Role="tblAddresstype" Type="Self.tblAddresstype" Multiplicity="0..1" />
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAddresstype">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblAddress">
+              <PropertyRef Name="addresstypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblcollec__invoi__693CA210">
+          <End Role="tblinvoice" Type="Self.tblinvoice" Multiplicity="0..1" />
+          <End Role="tblcollection" Type="Self.tblcollection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblinvoice">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcollection">
+              <PropertyRef Name="invoiceid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblcustom__addre__38996AB5">
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="0..1" />
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAddress">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcustomer">
+              <PropertyRef Name="addressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblcustom__hotel__398D8EEE">
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="0..1" />
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAddress">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcustomer">
+              <PropertyRef Name="hoteladdressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblemploy__addre__4BAC3F29">
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="0..1" />
+          <End Role="tblemployee" Type="Self.tblemployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAddress">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblemployee">
+              <PropertyRef Name="addressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblemploy__custo__4D94879B">
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="0..1" />
+          <End Role="tblemployee" Type="Self.tblemployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcustomer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblemployee">
+              <PropertyRef Name="customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblemploy__gende__4AB81AF0">
+          <End Role="tblgender" Type="Self.tblgender" Multiplicity="0..1" />
+          <End Role="tblemployee" Type="Self.tblemployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblgender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblemployee">
+              <PropertyRef Name="genderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblemploy__rolei__4CA06362">
+          <End Role="tblrole" Type="Self.tblrole" Multiplicity="0..1" />
+          <End Role="tblemployee" Type="Self.tblemployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblrole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblemployee">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblinvent__custo__44FF419A">
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="0..1" />
+          <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcustomer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblinventory">
+              <PropertyRef Name="customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblinvent__produ__440B1D61">
+          <End Role="tblproduct" Type="Self.tblproduct" Multiplicity="0..1" />
+          <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblproduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblinventory">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblinvoic__deliv__6477ECF3">
+          <End Role="tblorderdelivery" Type="Self.tblorderdelivery" Multiplicity="0..1" />
+          <End Role="tblinvoice" Type="Self.tblinvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblorderdelivery">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblinvoice">
+              <PropertyRef Name="deliveryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblmenuit__custo__52593CB8">
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="0..1" />
+          <End Role="tblmenuitems" Type="Self.tblmenuitems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcustomer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblmenuitems">
+              <PropertyRef Name="customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblorderd__order__5FB337D6">
+          <End Role="tblorders" Type="Self.tblorders" Multiplicity="0..1" />
+          <End Role="tblorderdelivery" Type="Self.tblorderdelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblorders">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblorderdelivery">
+              <PropertyRef Name="orderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblorders__menui__59FA5E80">
+          <End Role="tblmenuitems" Type="Self.tblmenuitems" Multiplicity="0..1" />
+          <End Role="tblorders" Type="Self.tblorders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblmenuitems">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblorders">
+              <PropertyRef Name="menuitemid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblproduc__custo__3E52440B">
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="0..1" />
+          <End Role="tblproduct" Type="Self.tblproduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcustomer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblproduct">
+              <PropertyRef Name="customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblproduc__hotel__3F466844">
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="0..1" />
+          <End Role="tblproduct" Type="Self.tblproduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAddress">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblproduct">
+              <PropertyRef Name="hoteladdressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hotelmanagementModelStoreContainer">
+          <EntitySet Name="tblAddress" EntityType="Self.tblAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAddresstype" EntityType="Self.tblAddresstype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblcollection" EntityType="Self.tblcollection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblcustomer" EntityType="Self.tblcustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblemployee" EntityType="Self.tblemployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblgender" EntityType="Self.tblgender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblinventory" EntityType="Self.tblinventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblinvoice" EntityType="Self.tblinvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblmenuitems" EntityType="Self.tblmenuitems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblorderdelivery" EntityType="Self.tblorderdelivery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblorders" EntityType="Self.tblorders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblproduct" EntityType="Self.tblproduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblrole" EntityType="Self.tblrole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblAddres__addre__33D4B598" Association="Self.FK__tblAddres__addre__33D4B598">
+            <End Role="tblAddresstype" EntitySet="tblAddresstype" />
+            <End Role="tblAddress" EntitySet="tblAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblcollec__invoi__693CA210" Association="Self.FK__tblcollec__invoi__693CA210">
+            <End Role="tblinvoice" EntitySet="tblinvoice" />
+            <End Role="tblcollection" EntitySet="tblcollection" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblcustom__addre__38996AB5" Association="Self.FK__tblcustom__addre__38996AB5">
+            <End Role="tblAddress" EntitySet="tblAddress" />
+            <End Role="tblcustomer" EntitySet="tblcustomer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblcustom__hotel__398D8EEE" Association="Self.FK__tblcustom__hotel__398D8EEE">
+            <End Role="tblAddress" EntitySet="tblAddress" />
+            <End Role="tblcustomer" EntitySet="tblcustomer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblemploy__addre__4BAC3F29" Association="Self.FK__tblemploy__addre__4BAC3F29">
+            <End Role="tblAddress" EntitySet="tblAddress" />
+            <End Role="tblemployee" EntitySet="tblemployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblemploy__custo__4D94879B" Association="Self.FK__tblemploy__custo__4D94879B">
+            <End Role="tblcustomer" EntitySet="tblcustomer" />
+            <End Role="tblemployee" EntitySet="tblemployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblemploy__gende__4AB81AF0" Association="Self.FK__tblemploy__gende__4AB81AF0">
+            <End Role="tblgender" EntitySet="tblgender" />
+            <End Role="tblemployee" EntitySet="tblemployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblemploy__rolei__4CA06362" Association="Self.FK__tblemploy__rolei__4CA06362">
+            <End Role="tblrole" EntitySet="tblrole" />
+            <End Role="tblemployee" EntitySet="tblemployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblinvent__custo__44FF419A" Association="Self.FK__tblinvent__custo__44FF419A">
+            <End Role="tblcustomer" EntitySet="tblcustomer" />
+            <End Role="tblinventory" EntitySet="tblinventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblinvent__produ__440B1D61" Association="Self.FK__tblinvent__produ__440B1D61">
+            <End Role="tblproduct" EntitySet="tblproduct" />
+            <End Role="tblinventory" EntitySet="tblinventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblinvoic__deliv__6477ECF3" Association="Self.FK__tblinvoic__deliv__6477ECF3">
+            <End Role="tblorderdelivery" EntitySet="tblorderdelivery" />
+            <End Role="tblinvoice" EntitySet="tblinvoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblmenuit__custo__52593CB8" Association="Self.FK__tblmenuit__custo__52593CB8">
+            <End Role="tblcustomer" EntitySet="tblcustomer" />
+            <End Role="tblmenuitems" EntitySet="tblmenuitems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblorderd__order__5FB337D6" Association="Self.FK__tblorderd__order__5FB337D6">
+            <End Role="tblorders" EntitySet="tblorders" />
+            <End Role="tblorderdelivery" EntitySet="tblorderdelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblorders__menui__59FA5E80" Association="Self.FK__tblorders__menui__59FA5E80">
+            <End Role="tblmenuitems" EntitySet="tblmenuitems" />
+            <End Role="tblorders" EntitySet="tblorders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblproduc__custo__3E52440B" Association="Self.FK__tblproduc__custo__3E52440B">
+            <End Role="tblcustomer" EntitySet="tblcustomer" />
+            <End Role="tblproduct" EntitySet="tblproduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblproduc__hotel__3F466844" Association="Self.FK__tblproduc__hotel__3F466844">
+            <End Role="tblAddress" EntitySet="tblAddress" />
+            <End Role="tblproduct" EntitySet="tblproduct" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="hotelmanagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAddress">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="country" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="district" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="place" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phonenumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="addresstypeid" Type="Int32" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblAddresstype" Relationship="Self.FK__tblAddres__addre__33D4B598" FromRole="tblAddress" ToRole="tblAddresstype" />
+          <NavigationProperty Name="tblcustomers" Relationship="Self.FK__tblcustom__addre__38996AB5" FromRole="tblAddress" ToRole="tblcustomer" />
+          <NavigationProperty Name="tblcustomers1" Relationship="Self.FK__tblcustom__hotel__398D8EEE" FromRole="tblAddress" ToRole="tblcustomer" />
+          <NavigationProperty Name="tblemployees" Relationship="Self.FK__tblemploy__addre__4BAC3F29" FromRole="tblAddress" ToRole="tblemployee" />
+          <NavigationProperty Name="tblproducts" Relationship="Self.FK__tblproduc__hotel__3F466844" FromRole="tblAddress" ToRole="tblproduct" />
+        </EntityType>
+        <EntityType Name="tblAddresstype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblAddresses" Relationship="Self.FK__tblAddres__addre__33D4B598" FromRole="tblAddresstype" ToRole="tblAddress" />
+        </EntityType>
+        <EntityType Name="tblcollection">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invoiceid" Type="Int32" />
+          <Property Name="collectionamount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="pendingamount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblinvoice" Relationship="Self.FK__tblcollec__invoi__693CA210" FromRole="tblcollection" ToRole="tblinvoice" />
+        </EntityType>
+        <EntityType Name="tblcustomer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="aadharnumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="addressid" Type="Int32" />
+          <Property Name="hoteladdressid" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblAddress" Relationship="Self.FK__tblcustom__addre__38996AB5" FromRole="tblcustomer" ToRole="tblAddress" />
+          <NavigationProperty Name="tblAddress1" Relationship="Self.FK__tblcustom__hotel__398D8EEE" FromRole="tblcustomer" ToRole="tblAddress" />
+          <NavigationProperty Name="tblemployees" Relationship="Self.FK__tblemploy__custo__4D94879B" FromRole="tblcustomer" ToRole="tblemployee" />
+          <NavigationProperty Name="tblinventories" Relationship="Self.FK__tblinvent__custo__44FF419A" FromRole="tblcustomer" ToRole="tblinventory" />
+          <NavigationProperty Name="tblmenuitems" Relationship="Self.FK__tblmenuit__custo__52593CB8" FromRole="tblcustomer" ToRole="tblmenuitems" />
+          <NavigationProperty Name="tblproducts" Relationship="Self.FK__tblproduc__custo__3E52440B" FromRole="tblcustomer" ToRole="tblproduct" />
+        </EntityType>
+        <EntityType Name="tblemployee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="aadharnumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="salary" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="joiningdate" Type="DateTime" Precision="3" />
+          <Property Name="genderid" Type="Int32" />
+          <Property Name="addressid" Type="Int32" />
+          <Property Name="roleid" Type="Int32" />
+          <Property Name="customerid" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblAddress" Relationship="Self.FK__tblemploy__addre__4BAC3F29" FromRole="tblemployee" ToRole="tblAddress" />
+          <NavigationProperty Name="tblcustomer" Relationship="Self.FK__tblemploy__custo__4D94879B" FromRole="tblemployee" ToRole="tblcustomer" />
+          <NavigationProperty Name="tblgender" Relationship="Self.FK__tblemploy__gende__4AB81AF0" FromRole="tblemployee" ToRole="tblgender" />
+          <NavigationProperty Name="tblrole" Relationship="Self.FK__tblemploy__rolei__4CA06362" FromRole="tblemployee" ToRole="tblrole" />
+        </EntityType>
+        <EntityType Name="tblgender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblemployees" Relationship="Self.FK__tblemploy__gende__4AB81AF0" FromRole="tblgender" ToRole="tblemployee" />
+        </EntityType>
+        <EntityType Name="tblinventory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="units" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productid" Type="Int32" />
+          <Property Name="customerid" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblcustomer" Relationship="Self.FK__tblinvent__custo__44FF419A" FromRole="tblinventory" ToRole="tblcustomer" />
+          <NavigationProperty Name="tblproduct" Relationship="Self.FK__tblinvent__produ__440B1D61" FromRole="tblinventory" ToRole="tblproduct" />
+        </EntityType>
+        <EntityType Name="tblinvoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deliveryid" Type="Int32" />
+          <Property Name="totalamount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblcollections" Relationship="Self.FK__tblcollec__invoi__693CA210" FromRole="tblinvoice" ToRole="tblcollection" />
+          <NavigationProperty Name="tblorderdelivery" Relationship="Self.FK__tblinvoic__deliv__6477ECF3" FromRole="tblinvoice" ToRole="tblorderdelivery" />
+        </EntityType>
+        <EntityType Name="tblmenuitem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="extrainfo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="customerid" Type="Int32" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblcustomer" Relationship="Self.FK__tblmenuit__custo__52593CB8" FromRole="tblmenuitems" ToRole="tblcustomer" />
+          <NavigationProperty Name="tblorders" Relationship="Self.FK__tblorders__menui__59FA5E80" FromRole="tblmenuitems" ToRole="tblorders" />
+        </EntityType>
+        <EntityType Name="tblorderdelivery">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="Int32" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblinvoices" Relationship="Self.FK__tblinvoic__deliv__6477ECF3" FromRole="tblorderdelivery" ToRole="tblinvoice" />
+          <NavigationProperty Name="tblorder" Relationship="Self.FK__tblorderd__order__5FB337D6" FromRole="tblorderdelivery" ToRole="tblorders" />
+        </EntityType>
+        <EntityType Name="tblorder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="person" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="personphonenumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="menuitemid" Type="Int32" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="orderfordate" Type="DateTime" Precision="3" />
+          <Property Name="totalprice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblmenuitem" Relationship="Self.FK__tblorders__menui__59FA5E80" FromRole="tblorders" ToRole="tblmenuitems" />
+          <NavigationProperty Name="tblorderdeliveries" Relationship="Self.FK__tblorderd__order__5FB337D6" FromRole="tblorders" ToRole="tblorderdelivery" />
+        </EntityType>
+        <EntityType Name="tblproduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customerid" Type="Int32" />
+          <Property Name="hoteladdressid" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblAddress" Relationship="Self.FK__tblproduc__hotel__3F466844" FromRole="tblproduct" ToRole="tblAddress" />
+          <NavigationProperty Name="tblcustomer" Relationship="Self.FK__tblproduc__custo__3E52440B" FromRole="tblproduct" ToRole="tblcustomer" />
+          <NavigationProperty Name="tblinventories" Relationship="Self.FK__tblinvent__produ__440B1D61" FromRole="tblproduct" ToRole="tblinventory" />
+        </EntityType>
+        <EntityType Name="tblrole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <NavigationProperty Name="tblemployees" Relationship="Self.FK__tblemploy__rolei__4CA06362" FromRole="tblrole" ToRole="tblemployee" />
+        </EntityType>
+        <Association Name="FK__tblAddres__addre__33D4B598">
+          <End Role="tblAddresstype" Type="Self.tblAddresstype" Multiplicity="0..1" />
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAddresstype">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblAddress">
+              <PropertyRef Name="addresstypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblcustom__addre__38996AB5">
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="0..1" />
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAddress">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcustomer">
+              <PropertyRef Name="addressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblcustom__hotel__398D8EEE">
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="0..1" />
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAddress">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcustomer">
+              <PropertyRef Name="hoteladdressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblemploy__addre__4BAC3F29">
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="0..1" />
+          <End Role="tblemployee" Type="Self.tblemployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAddress">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblemployee">
+              <PropertyRef Name="addressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblproduc__hotel__3F466844">
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="0..1" />
+          <End Role="tblproduct" Type="Self.tblproduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAddress">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblproduct">
+              <PropertyRef Name="hoteladdressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblcollec__invoi__693CA210">
+          <End Role="tblinvoice" Type="Self.tblinvoice" Multiplicity="0..1" />
+          <End Role="tblcollection" Type="Self.tblcollection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblinvoice">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcollection">
+              <PropertyRef Name="invoiceid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblemploy__custo__4D94879B">
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="0..1" />
+          <End Role="tblemployee" Type="Self.tblemployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcustomer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblemployee">
+              <PropertyRef Name="customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblinvent__custo__44FF419A">
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="0..1" />
+          <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcustomer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblinventory">
+              <PropertyRef Name="customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblmenuit__custo__52593CB8">
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="0..1" />
+          <End Role="tblmenuitems" Type="Self.tblmenuitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcustomer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblmenuitems">
+              <PropertyRef Name="customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblproduc__custo__3E52440B">
+          <End Role="tblcustomer" Type="Self.tblcustomer" Multiplicity="0..1" />
+          <End Role="tblproduct" Type="Self.tblproduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcustomer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblproduct">
+              <PropertyRef Name="customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblemploy__gende__4AB81AF0">
+          <End Role="tblgender" Type="Self.tblgender" Multiplicity="0..1" />
+          <End Role="tblemployee" Type="Self.tblemployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblgender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblemployee">
+              <PropertyRef Name="genderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblemploy__rolei__4CA06362">
+          <End Role="tblrole" Type="Self.tblrole" Multiplicity="0..1" />
+          <End Role="tblemployee" Type="Self.tblemployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblrole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblemployee">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblinvent__produ__440B1D61">
+          <End Role="tblproduct" Type="Self.tblproduct" Multiplicity="0..1" />
+          <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblproduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblinventory">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblinvoic__deliv__6477ECF3">
+          <End Role="tblorderdelivery" Type="Self.tblorderdelivery" Multiplicity="0..1" />
+          <End Role="tblinvoice" Type="Self.tblinvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblorderdelivery">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblinvoice">
+              <PropertyRef Name="deliveryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblorders__menui__59FA5E80">
+          <End Role="tblmenuitems" Type="Self.tblmenuitem" Multiplicity="0..1" />
+          <End Role="tblorders" Type="Self.tblorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblmenuitems">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblorders">
+              <PropertyRef Name="menuitemid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblorderd__order__5FB337D6">
+          <End Role="tblorders" Type="Self.tblorder" Multiplicity="0..1" />
+          <End Role="tblorderdelivery" Type="Self.tblorderdelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblorders">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblorderdelivery">
+              <PropertyRef Name="orderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelManagement_Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAddresses" EntityType="Self.tblAddress" />
+          <EntitySet Name="tblAddresstypes" EntityType="Self.tblAddresstype" />
+          <EntitySet Name="tblcollections" EntityType="Self.tblcollection" />
+          <EntitySet Name="tblcustomers" EntityType="Self.tblcustomer" />
+          <EntitySet Name="tblemployees" EntityType="Self.tblemployee" />
+          <EntitySet Name="tblgenders" EntityType="Self.tblgender" />
+          <EntitySet Name="tblinventories" EntityType="Self.tblinventory" />
+          <EntitySet Name="tblinvoices" EntityType="Self.tblinvoice" />
+          <EntitySet Name="tblmenuitems" EntityType="Self.tblmenuitem" />
+          <EntitySet Name="tblorderdeliveries" EntityType="Self.tblorderdelivery" />
+          <EntitySet Name="tblorders" EntityType="Self.tblorder" />
+          <EntitySet Name="tblproducts" EntityType="Self.tblproduct" />
+          <EntitySet Name="tblroles" EntityType="Self.tblrole" />
+          <AssociationSet Name="FK__tblAddres__addre__33D4B598" Association="Self.FK__tblAddres__addre__33D4B598">
+            <End Role="tblAddresstype" EntitySet="tblAddresstypes" />
+            <End Role="tblAddress" EntitySet="tblAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblcustom__addre__38996AB5" Association="Self.FK__tblcustom__addre__38996AB5">
+            <End Role="tblAddress" EntitySet="tblAddresses" />
+            <End Role="tblcustomer" EntitySet="tblcustomers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblcustom__hotel__398D8EEE" Association="Self.FK__tblcustom__hotel__398D8EEE">
+            <End Role="tblAddress" EntitySet="tblAddresses" />
+            <End Role="tblcustomer" EntitySet="tblcustomers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblemploy__addre__4BAC3F29" Association="Self.FK__tblemploy__addre__4BAC3F29">
+            <End Role="tblAddress" EntitySet="tblAddresses" />
+            <End Role="tblemployee" EntitySet="tblemployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblproduc__hotel__3F466844" Association="Self.FK__tblproduc__hotel__3F466844">
+            <End Role="tblAddress" EntitySet="tblAddresses" />
+            <End Role="tblproduct" EntitySet="tblproducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblcollec__invoi__693CA210" Association="Self.FK__tblcollec__invoi__693CA210">
+            <End Role="tblinvoice" EntitySet="tblinvoices" />
+            <End Role="tblcollection" EntitySet="tblcollections" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblemploy__custo__4D94879B" Association="Self.FK__tblemploy__custo__4D94879B">
+            <End Role="tblcustomer" EntitySet="tblcustomers" />
+            <End Role="tblemployee" EntitySet="tblemployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblinvent__custo__44FF419A" Association="Self.FK__tblinvent__custo__44FF419A">
+            <End Role="tblcustomer" EntitySet="tblcustomers" />
+            <End Role="tblinventory" EntitySet="tblinventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblmenuit__custo__52593CB8" Association="Self.FK__tblmenuit__custo__52593CB8">
+            <End Role="tblcustomer" EntitySet="tblcustomers" />
+            <End Role="tblmenuitems" EntitySet="tblmenuitems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblproduc__custo__3E52440B" Association="Self.FK__tblproduc__custo__3E52440B">
+            <End Role="tblcustomer" EntitySet="tblcustomers" />
+            <End Role="tblproduct" EntitySet="tblproducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblemploy__gende__4AB81AF0" Association="Self.FK__tblemploy__gende__4AB81AF0">
+            <End Role="tblgender" EntitySet="tblgenders" />
+            <End Role="tblemployee" EntitySet="tblemployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblemploy__rolei__4CA06362" Association="Self.FK__tblemploy__rolei__4CA06362">
+            <End Role="tblrole" EntitySet="tblroles" />
+            <End Role="tblemployee" EntitySet="tblemployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblinvent__produ__440B1D61" Association="Self.FK__tblinvent__produ__440B1D61">
+            <End Role="tblproduct" EntitySet="tblproducts" />
+            <End Role="tblinventory" EntitySet="tblinventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblinvoic__deliv__6477ECF3" Association="Self.FK__tblinvoic__deliv__6477ECF3">
+            <End Role="tblorderdelivery" EntitySet="tblorderdeliveries" />
+            <End Role="tblinvoice" EntitySet="tblinvoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblorders__menui__59FA5E80" Association="Self.FK__tblorders__menui__59FA5E80">
+            <End Role="tblmenuitems" EntitySet="tblmenuitems" />
+            <End Role="tblorders" EntitySet="tblorders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblorderd__order__5FB337D6" Association="Self.FK__tblorderd__order__5FB337D6">
+            <End Role="tblorders" EntitySet="tblorders" />
+            <End Role="tblorderdelivery" EntitySet="tblorderdeliveries" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="hotelmanagementModelStoreContainer" CdmEntityContainer="HotelManagement_Context">
+          <EntitySetMapping Name="tblAddresses">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblAddress">
+              <MappingFragment StoreEntitySet="tblAddress">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="addresstypeid" ColumnName="addresstypeid" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAddresstypes">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblAddresstype">
+              <MappingFragment StoreEntitySet="tblAddresstype">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblcollections">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblcollection">
+              <MappingFragment StoreEntitySet="tblcollection">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="invoiceid" ColumnName="invoiceid" />
+                <ScalarProperty Name="collectionamount" ColumnName="collectionamount" />
+                <ScalarProperty Name="pendingamount" ColumnName="pendingamount" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblcustomers">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblcustomer">
+              <MappingFragment StoreEntitySet="tblcustomer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="aadharnumber" ColumnName="aadharnumber" />
+                <ScalarProperty Name="addressid" ColumnName="addressid" />
+                <ScalarProperty Name="hoteladdressid" ColumnName="hoteladdressid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblemployees">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblemployee">
+              <MappingFragment StoreEntitySet="tblemployee">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="aadharnumber" ColumnName="aadharnumber" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="joiningdate" ColumnName="joiningdate" />
+                <ScalarProperty Name="genderid" ColumnName="genderid" />
+                <ScalarProperty Name="addressid" ColumnName="addressid" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblgenders">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblgender">
+              <MappingFragment StoreEntitySet="tblgender">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblinventories">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblinventory">
+              <MappingFragment StoreEntitySet="tblinventory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="units" ColumnName="units" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblinvoices">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblinvoice">
+              <MappingFragment StoreEntitySet="tblinvoice">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="deliveryid" ColumnName="deliveryid" />
+                <ScalarProperty Name="totalamount" ColumnName="totalamount" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblmenuitems">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblmenuitem">
+              <MappingFragment StoreEntitySet="tblmenuitems">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="extrainfo" ColumnName="extrainfo" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblorderdeliveries">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblorderdelivery">
+              <MappingFragment StoreEntitySet="tblorderdelivery">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblorders">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblorder">
+              <MappingFragment StoreEntitySet="tblorders">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="person" ColumnName="person" />
+                <ScalarProperty Name="personphonenumber" ColumnName="personphonenumber" />
+                <ScalarProperty Name="menuitemid" ColumnName="menuitemid" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="orderfordate" ColumnName="orderfordate" />
+                <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblproducts">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblproduct">
+              <MappingFragment StoreEntitySet="tblproduct">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="hoteladdressid" ColumnName="hoteladdressid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblroles">
+            <EntityTypeMapping TypeName="hotelmanagementModel.tblrole">
+              <MappingFragment StoreEntitySet="tblrole">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

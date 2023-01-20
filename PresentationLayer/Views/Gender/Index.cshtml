@@ -1,0 +1,23 @@
+﻿@model IEnumerable<BusinessObjects.GenderModel>
+@{
+    ViewBag.Title = "Gender";
+}
+
+<h2>Gender</h2>
+<div>
+    @Html.ActionLink("addgender","Create")
+</div>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.Name)</th>  
+        <th>@Html.DisplayNameFor(m =>m.isactive) </th>
+        
+    </tr>
+    @foreach(BusinessObjects.GenderModel gendermodel in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m=> @gendermodel.Name)</td>
+                    <td>@Html.DisplayFor(m => @gendermodel.isactive)</td>
+                </tr>
+            }
+</table>
